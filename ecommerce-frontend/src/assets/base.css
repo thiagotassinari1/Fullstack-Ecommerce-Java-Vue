@@ -89,7 +89,7 @@ button:hover {
 
 .produto-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 16px;
   padding-bottom: 40px;
 }
@@ -280,4 +280,80 @@ button:disabled {
 .badge-danger {
   background: #fde2e2;
   color: #a32525;
+}
+
+.filtros {
+    border: 1px solid #d8dee8;
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin: 12px 0 20px;
+    background: #f7f9fc;
+}
+
+.filtros-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.filtros-header h3 {
+    margin: 0;
+    font-size: 1rem;
+    color: #344054;
+}
+
+.filtros-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 12px;
+    align-items: end;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 0.9rem;
+    color: #344054;
+}
+
+.campo input,
+.campo select {
+    padding: 8px 10px;
+    border: 1px solid #c4cbd6;
+    border-radius: 6px;
+    background: #ffffff;
+    font-size: 0.95rem;
+}
+
+.campo-checkbox {
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+}
+
+.campo-erro {
+    color: #a32525;
+    font-size: 0.8rem;
+}
+
+.btn-link {
+    background: none;
+    border: none;
+    color: #1f5cd6;
+    cursor: pointer;
+    font-size: 0.9rem;
+    padding: 0;
+    text-decoration: underline;
+}
+
+.btn-link:hover {
+    color: #0c3aa3;
+}
+
+.contagem-rodape {
+    margin-top: 12px;
+    text-align: right;
 }

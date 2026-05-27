@@ -1,16 +1,32 @@
 import { computed, ref } from "vue";
 
-export function useListagem(carregadorPadrao) {
+export function useListagem(carregadorPadrao, filtrador) {
     
     const itens = ref([])
     const carregando = ref(false)
     const erro = ref('')
+
+    const itensFiltrados = computed(() => {
+        if (typeof filtrador !== 'function') {
+            return itens.value
+        }
+
+        return filtrador(itens.value)
+    })
+
+    const semResultado = computed(() => {
+        return !carregando.value
+            && !erro.value
+            && itens.value.length > 0
+            && itensFiltrados.value.length === 0
+    })
 
     const vazio = computed(() => {
         return !carregando.value && !erro.value && itens.value.length === 0
     })
 
     const total = computed(() => itens.value.length)
+    const totalFiltrado = computed(() => itensFiltrados.value.length)
 
     async function carregar(carregador = carregadorPadrao) {
         if (typeof carregador !== 'function') {
@@ -23,7 +39,7 @@ export function useListagem(carregadorPadrao) {
         try {
             const dados = await carregador()
             itens.value = Array.isArray(dados) ? dados : []
-        } catch {
+        } catch (e) {
             erro.value = 'Não foi possível carregar os dados. Verifique se o backend está no ar.'
             itens.value = []
             console.error(e)
@@ -39,10 +55,13 @@ export function useListagem(carregadorPadrao) {
 
     return {
         itens,
+        itensFiltrados,
         carregando,
         erro,
         vazio,
+        semResultado,
         total,
+        totalFiltrado,
         carregar,
         limpar
     }

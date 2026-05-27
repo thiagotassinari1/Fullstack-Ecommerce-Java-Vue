@@ -46,6 +46,8 @@ defineEmits(['atualizar'])
       </div>
     </header>
 
+    <slot name="filtros"></slot>
+
     <p v-if="carregando" class="status">Carregando...</p>
     <p v-else-if="erro" class="status status-error">{{ erro }}</p>
     <p v-else-if="vazio" class="status">{{ mensagemVazio }}</p>

@@ -4,6 +4,7 @@ import AppHeader from './components/AppHeader.vue'
 import ProdutoFormulario from './components/ProdutoFormulario.vue';
 import ProdutoLista from './components/ProdutoLista.vue';
 import CategoriaLista from './components/CategoriaLista.vue';
+import ProdutoFiltros from './components/ProdutoFiltros.vue';
 
 const produtoLista = ref(null)
 
@@ -25,9 +26,8 @@ function atualizarProdutos() {
 
     <ProdutoFormulario @produto-cadastrado="atualizarProdutos"/>
     <ProdutoLista ref="produtoLista"/>
-
     <CategoriaLista/>
-
+    
   </main>
 
 </template>
