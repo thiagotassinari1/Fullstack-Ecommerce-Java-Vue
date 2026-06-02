@@ -71,8 +71,8 @@ public class ProdutoService {
         return produtoRepository.save(produto);
     }
 
-    public List<Produto> listarTodos() {
-        return produtoRepository.findAll();
+    public List<ProdutoResponseDTO> listarTodos() {
+        return produtoRepository.findAll().stream().map(this::toResponseDTO).toList();
     }
 
     public Optional<Produto> buscarPorId(Long id) {
@@ -83,8 +83,8 @@ public class ProdutoService {
         produtoRepository.deleteById(id);
     }
 
-    public Page<Produto> buscar(String nome, Long categoriaId, Pageable pageable) {
-        return produtoRepository.buscarComFiltros(nome, categoriaId, pageable);
+    public Page<ProdutoResponseDTO> buscar(String nome, Long categoriaId, Pageable pageable) {
+        return produtoRepository.buscarComFiltros(nome, categoriaId, pageable).map(this::toResponseDTO);
     }
 
     public List<ProdutoPorCategoriaProjection> relatorioProdutosPorCategoria() {

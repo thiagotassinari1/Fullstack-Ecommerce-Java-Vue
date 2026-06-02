@@ -47,7 +47,7 @@ public class ProdutoController {
     }
 
     @GetMapping("/todos")
-    public ResponseEntity<List<Produto>> listarTodos() {
+    public ResponseEntity<List<ProdutoResponseDTO>> listarTodos() {
         return ResponseEntity.ok(produtoService.listarTodos());
     }
 
@@ -82,7 +82,7 @@ public class ProdutoController {
     */
 
     @GetMapping
-    public ResponseEntity<Page<Produto>> buscar(
+    public ResponseEntity<Page<ProdutoResponseDTO>> buscar(
             @RequestParam(required = false) String nome,
             @RequestParam(required = false) Long categoriaId,
             Pageable pageable) {
