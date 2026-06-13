@@ -89,7 +89,7 @@ button:hover {
 
 .produto-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 16px;
   padding-bottom: 40px;
 }
@@ -400,10 +400,92 @@ button:disabled {
     border: 1px solid #c4cbd6;
     border-radius: 6px;
     background: #ffffff;
+    color: #344054;
+    font-weight: 600;
     cursor: pointer;
+}
+
+.paginacao-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #344054;
+}
+
+.paginacao-btn:hover:not(:disabled) {
+    border-color: #94a3b8;
+    background: #f8fafc;
+}
+
+.paginacao-icone {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
 }
 
 .paginacao button:disabled {
     opacity: 0.5;
     cursor: not-allowed;
+}
+
+/* Skeleton loading */
+.skeleton-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+    padding-bottom: 40px;
+}
+
+.skeleton-card {
+    border: 1px solid #e3e8ef;
+    border-radius: 10px;
+    padding: 16px;
+    background: #ffffff;
+}
+
+.skeleton-linha {
+    height: 12px;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    background: linear-gradient(90deg, #eceff3 25%, #f5f7fa 50%, #eceff3 75%);
+    background-size: 200% 100%;
+    animation: skeleton-brilho 1.4s ease-in-out infinite;
+}
+
+.skeleton-titulo {
+    height: 18px;
+    width: 70%;
+    margin-bottom: 16px;
+}
+
+.skeleton-curta {
+    width: 50%;
+}
+
+.skeleton-rodape {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.skeleton-rodape .skeleton-linha {
+    margin-bottom: 0;
+}
+
+.skeleton-preco {
+    width: 80px;
+    height: 16px;
+}
+
+.skeleton-estoque {
+    width: 60px;
+}
+
+@keyframes skeleton-brilho {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
 }

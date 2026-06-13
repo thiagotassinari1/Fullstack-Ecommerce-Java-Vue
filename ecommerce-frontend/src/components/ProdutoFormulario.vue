@@ -135,7 +135,7 @@ onMounted(() => {
         <form class="produto-form" @submit.prevent="salvarProduto">
             <label>
                 Nome
-                <input v-model="produto.nome" type="text" maxlength="120" placeholder="Ex.: Mouse sem fio" :class="{ 'input-error': tentouEnviar && erros.nome }">
+                <input v-model="produto.nome" type="text" maxlength="120" placeholder="Ex.: Mouse sem fio" autofocus :class="{ 'input-error': tentouEnviar && erros.nome }">
                 <span v-if="tentouEnviar && erros.nome" class="field-error">
                     {{ erros.nome }}
                 </span>
