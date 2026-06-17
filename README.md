@@ -14,7 +14,7 @@ Um sistema completo de E-commerce desenvolvido com uma arquitetura separada entr
 - ✅ Integração frontend-backend com Axios
 - ✅ Banco de dados relacional PostgreSQL
 - ✅ Validação de dados no backend
-- ✅ Projeto estruturado em monorepo
+- ✅ Projeto estruturado em monorepo (subdividido em pastas para backend e frontend)
 
 ---
 
